@@ -1,0 +1,63 @@
+.user-details-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.back-button {
+    background-color: #272C52;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.back-button i {
+    margin-right: 5px;
+}
+
+.user-details {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-container {
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+.avatar {
+    width: 100%;
+    height: auto;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.detail-label {
+    font-weight: bold;
+    margin-right: 10px;
+    width: 100px;
+}
+
+.detail-value {
+    flex-grow: 1;
+}
+
+.user-details p {
+    margin: 0;
+    font-size: 16px;
+}

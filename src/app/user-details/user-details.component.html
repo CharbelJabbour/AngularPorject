@@ -1,0 +1,31 @@
+<div class="user-details-container">
+  <button (click)="goBack()" class="back-button">
+    <i class="fas fa-chevron-left"></i> Back to User List
+  </button>
+
+  <h2>User Details</h2>
+  <div class="user-details">
+    <ng-container *ngIf="user">
+      <div class="avatar-container">
+        <img [src]="user.avatar" alt="User Avatar" class="avatar">
+      </div>
+      <div class="user-info">
+        <div class="detail-item">
+          <span class="detail-label">First Name:</span>
+          <span class="detail-value">{{ user.first_name }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Last Name:</span>
+          <span class="detail-value">{{ user.last_name }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">ID:</span>
+          <span class="detail-value">{{ user.id }}</span>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!user">
+      <p>User not found</p>
+    </ng-container>
+  </div>
+</div>

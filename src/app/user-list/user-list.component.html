@@ -1,0 +1,52 @@
+<div class="container">
+  <header class="app-header row">
+    <div class="col-md-6 title-container">
+      <h1>Users List</h1>
+      <p>Front-end assessment by Charbel Jabbour</p>
+    </div>
+    <div class="col-md-6 search-bar">
+      <input type="number" placeholder="Search by ID" [(ngModel)]="searchUserId" (ngModelChange)="searchUsers()">
+    </div>
+  </header>
+
+  <div class="content-container">
+    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-scale-multiple"></ngx-spinner>
+    <div *ngIf="!loading">
+      <div *ngIf="userNotFound" class="user-not-found-message">
+        <i class="fas fa-user-slash"></i>
+      </div>
+
+      <div *ngIf="loading">
+        <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" color="#fff" type="ball-clip-rotate-multiple"></ngx-spinner>
+      </div>
+
+      <div class="user-list-wrapper row" [@slideFromRightToLeft] >
+        <ul class="user-list list-unstyled d-flex justify-content-center flex-wrap" *ngIf="users && users.length > 0">
+          <li *ngFor="let user of users" class="col-md-4" (click)="navigateToUserDetails(user.id)">
+            <div class="user-item card mb-3">
+              <div class="avatar-container text-center">
+                <img [src]="user.avatar" alt="Avatar" class="avatar card-img-top">
+              </div>
+              <div class="user-info card-body text-center">
+                <span class="user-name card-title">{{ user.first_name }} {{ user.last_name }}</span>
+                <span class="user-id">ID: {{ user.id }}</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div *ngIf="searchOff">
+        <div class="pagination row justify-content-center">
+          <button class="btn btn-primary" (click)="prevPage()" [disabled]="!enablePrev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <span class="mx-3">{{ pageNumber }} / {{ totalPages }}</span>
+          <button class="btn btn-primary" (click)="nextPage()" [disabled]="!enableNext">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
